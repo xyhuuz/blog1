@@ -60,7 +60,7 @@ body{
 .head1 a:hover {
 background-color: #608dd9;
 }
-#musicplayer {
+.musicplayer {
     position: fixed;
     bottom: 10px;
     left: 5px;
