@@ -1,0 +1,62 @@
+
+
+/* *{
+    width: 500px;
+    margin: 0 auto;
+} */
+body{
+    background-image: url(../img/bg.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100%;
+}
+
+.head img{
+    vertical-align:bottom;
+}
+
+.head{
+    line-height: 80px;
+    text-align: center;
+    box-sizing: border-box;
+    background-color: rgba(0,0,0,0.8);
+}
+.head1{
+    line-height: 80px;
+    text-align: center;
+    box-sizing: border-box;
+    background-color: rgba(0,0,0,0.8);
+}
+
+.head a{
+        
+        display: inline-block;
+        width: 110px;
+        height: 80px;
+        background-color: #3064bb;
+        color: #fff;
+        text-decoration: none;
+        /* line-height: 80px; */
+        font-size: 18px;
+        }
+        
+        /* 鼠标悬停的效果 */
+.head a:hover {
+    background-color: #608dd9;
+}
+.head1 a{
+        
+    display: inline-block;
+    width: 150px;
+    height: 80px;
+    background-color: #3064bb;
+    color: #fff;
+    text-decoration: none;
+    /* line-height: 80px; */
+    font-size: 18px;
+    }
+    
+    /* 鼠标悬停的效果 */
+.head1 a:hover {
+background-color: #608dd9;
+}

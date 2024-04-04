@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>小楠梁</title>
+</head>
+<body>
+    
+    <div class="head">
+        <img src="./img/R-C.jpg" alt="[picture]" height="80px">
+        <a href="index.html">Home</a>
+        <a href="https://xyhuuz.github.io/archives">Archives</a>
+        <a href="https://www.luogu.com.cn/">Resources</a>
+        <a href="games.html">Games</a>
+        <a href="links.html">Links</a>
+        <a href="games.html">结束游戏</a>
+    </div>
+    <div id="output" style="text-align: center;color:blue;font-size: 20px;"></div>
+
+    <script>
+        const outputElement = document.getElementById('output');
+
+        setInterval(() => {
+            outputElement.innerHTML += '梁曜阳小楠梁<br>';
+        }, 200);
+    </script>
+</body>
+</html>

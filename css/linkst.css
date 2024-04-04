@@ -1,0 +1,57 @@
+/* *{
+    width: 500px;
+    margin: 0 auto;
+} */
+body{
+    background-image: url(../img/bg.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100%;
+}
+
+.head img{
+    vertical-align:bottom;
+}
+
+.head{
+    line-height: 80px;
+    text-align: center;
+    box-sizing: border-box;
+    background-color: rgba(0,0,0,0.8);
+}
+
+.head a{
+        
+        display: inline-block;
+        width: 110px;
+        height: 80px;
+        background-color: #3064bb;
+        color: #fff;
+        text-decoration: none;
+        /* line-height: 80px; */
+        font-size: 18px;
+        }
+        
+        /* 鼠标悬停的效果 */
+.head a:hover {
+    background-color: #608dd9;
+}
+
+.link {
+    width: 100%;
+    height: 40px;
+    background-color:aqua;
+    color: #fff;
+    text-decoration: none;
+    line-height: 40px;
+    font-size: 18px;
+    text-align:center;
+}
+
+/* .link{width:100%;height:50px;border:1px solid skyblue;} */
+.e2{list-style:none;padding-left:0%;text-decoration: none;}
+.e2 li{line-height:50px;display:inline-block;text-decoration: none;}
+
+.link:hover {
+    background-color: #608dd9;
+}
