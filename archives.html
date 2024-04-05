@@ -3,16 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/style.css">
+    <!-- 链接外部css -->
+    <link rel="stylesheet" href="./css/archives.css">
     <!-- 添加网站的图标 -->
     <link rel="Shortcut Icon" href="./img/title.ico" type="image/x-icon" />
-    <title>小楠梁</title>
+    <!-- 给网站标题取名 -->
+    <title>Archives</title>
 </head>
+
 <body>
     <!-- 鼠标点击烟花特效 -->
     <script src="https://blog-static.cnblogs.com/files/zouwangblog/mouse-click.js"></script>
     <canvas width="1777" height="841" style="position: fixed; left: 0px; top: 0px; z-index: 2147483647; pointer-events: none;"></canvas>
-    <!-- 跟index.html一样的导航栏QAQ -->
+    <!-- 网易云外链调用 -->
+    <iframe class="musicplayer" frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=110 src="https://music.163.com/outchain/player?type=0&id=8953577168&auto=0&height=90"></iframe>
+    <!-- 头部导航制作 -->
     <div class="head">
         <img src="./img/R-C.jpg" alt="[picture]" height="80px">
         <a href="index.html">Home</a>
@@ -20,18 +25,15 @@
         <a href="https://www.luogu.com.cn/">Resources</a>
         <a href="games.html">Games</a>
         <a href="links.html">Links</a>
-        <a href="games.html">结束游戏</a>
     </div>
-    <!-- 用js脚本输出梁曜阳小楠梁 -->
-    <div id="output" style="text-align: center;color:blue;font-size: 20px;"></div>
 
-    <script>
-        const outputElement = document.getElementById('output');
-
-        setInterval(() => {
-            outputElement.innerHTML += '梁曜阳小楠梁<br>';
-        }, 200);
-    </script>
-
+    <div class="kapian" class="clearfix">
+        <div class="photo"><img src="./img/kapian.png" alt="[picture]"></div>
+        <div class="contetnt">
+            <h2><a href="./archives/archives01.html">博客手搓好了!</a></h2>
+            <p style="text-align: center; font-size: 13px;">Finished on 2024/04/05</p>
+            <p>学完html+css以后自己手写了一个博客，以后会完善内容（鸽）</p>
+        </div>
+    </div>
 </body>
 </html>

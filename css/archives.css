@@ -1,12 +1,12 @@
-
-/* 清空预设内外边距以及解决元素溢出 */
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     
 }
-
+.clearfix {
+    clear: both;
+  }
 /* 设置背景大图并令其位置固定 */
 body{
     background-image: url(../img/bg.jpg);
@@ -48,62 +48,10 @@ body{
 .head a:hover {
     background-color: #608dd9;
 }
-/* 设置game.html游戏选项属性 */
-.gameop{
-    margin: 40px auto;/*水平居中*/
-    line-height: 80px;
-    text-align: center;
-    box-sizing: border-box;
-    background-color: rgba(0,0,0,0.7);
-}
-/* 设置椭圆蓝色方块并添加阴影 */
-.gameop a{
-    margin-right: 15px;
-    border-radius: 50%; /*设置圆角属性 */
-    box-shadow: 2px 4px 10px 1px rgba(0,0,0,0.5);/*阴影属性 X轴偏移量 Y轴偏移量 模糊半径 扩散半径 颜色 内外阴影*/
-    display: inline-block;
-    width: 150px;
-    height: 80px;
-    background-color: #3064bb;
-    color: #fff;
-    text-decoration: none;
-    font-size: 17px;
-    }
-    
-/* 设置鼠标悬停时蓝色方块减淡效果 */
-.gameop a:hover {
-background-color: #608dd9;
-}
-.zhengwen .date{
-    display: inline-block;
-    margin-bottom: 20px;
-    text-align: center;
-    font-size: 12px;
-    color: #333;
-}
-
-.zhengwen{
-    margin: 10px auto 140px;
-    background-color: rgba(230,230,230,0.8);
-    background-size: contain;
-    width: 1050px;
-    line-height: 30px;
-    
-    text-align:center;
-    color: #222;
-    font-size: 17px;
-    
-}
-
-.zhengwen p{
-    text-indent: 2em;
-    text-align: left;
-}
-
 .kapian{
     margin: 10px auto 20px;
     display: flex;
-    align-items:center;
+    align-items:flex-start;
     flex-wrap: wrap;
     justify-content:center;
     /* display: flex; *
@@ -121,13 +69,12 @@ background-color: #608dd9;
     /* float: left;
     margin-top: -27px; */
     /* float: left; */
-    
+    /* vertical-align:middle; */
 
     text-align: center;
 }
 .kapian img{
     /* align-self: center; */
-    
     width: 70px;
     height: 70px;
 }
@@ -144,8 +91,10 @@ background-color: #608dd9;
     width: 1050px;
     /* flex: 1; 占据剩余空间 */
 }
-/* #kanban{
-    position: fixed; 
-    bottom: 0;
-    right: 0 !important;
-} */
+a{
+    color: blue;
+    text-decoration: none;
+}
+a:hover{
+    color: coral;
+}
