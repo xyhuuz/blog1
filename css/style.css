@@ -30,7 +30,7 @@ body{
     line-height: 80px;
     text-align: center;
     box-sizing: border-box;
-    background-color: rgba(0,0,0,0.8);
+    background-color: rgba(224,240,253,0.8);
 }
 /* 设置顶部导航文字为行内块级元素，并添加文字颜色以及蓝色背景块 */
 .head a{
@@ -38,15 +38,17 @@ body{
     display: inline-block;
     width: 110px;
     height: 80px;
-    background-color: #3064bb;
-    color: #fff;
+    background-color:transparent;
+    transition-duration: 0.4s;
+    color: #333;
     text-decoration: none;
+    border-radius: 12%;
     /* line-height: 80px; */
     font-size: 18px;
     }
 /* 设置鼠标悬停时减淡蓝色方块颜色 */
 .head a:hover {
-    background-color: #608dd9;
+    background-color: #709de9;
 }
 /* 设置game.html游戏选项属性 */
 .gameop{
@@ -88,7 +90,7 @@ background-color: #608dd9;
     background-size: contain;
     width: 1050px;
     line-height: 30px;
-    
+    box-shadow: 2px 4px 10px 1px rgba(0,0,0,0.7);
     text-align:center;
     color: #222;
     font-size: 17px;
@@ -96,8 +98,13 @@ background-color: #608dd9;
 }
 
 .zhengwen p{
+    margin: 5px 50px;
     text-indent: 2em;
     text-align: left;
+}
+
+.zhengwen cite{
+    margin: 0px 50px;
 }
 
 .kapian{
@@ -149,3 +156,18 @@ background-color: #608dd9;
     bottom: 0;
     right: 0 !important;
 } */
+.shuming{
+    color: skyblue;
+    font-size: 2.5rem;
+    -webkit-animation: shining 0.5s alternate infinite;
+    animation: shining 0.5s alternate infinite;
+}
+@-webkit-keyframes shining {
+    from {
+        text-shadow: 0 0 10px #F8D6DD, 0 0 20px #F8D6DD, 0 0 30px #F8D6DD, 0 0 40px #F7D3E4, 0 0 50px #F7D3E4, 0 0 60px #F7D3E4;
+    }
+
+    to {
+        text-shadow: 0 0 5px #F8D6DD, 0 0 10px #F8D6DD, 0 0 15px #F8D6DD, 0 0 20px #F7D3E4, 0 0 25px #F7D3E4, 0 0 30px #F7D3E4;
+    }
+}

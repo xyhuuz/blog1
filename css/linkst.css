@@ -20,24 +20,25 @@ body{
     line-height: 80px;
     text-align: center;
     box-sizing: border-box;
-    background-color: rgba(0,0,0,0.8);
+    background-color: rgba(224,240,253,0.8);
 }
-
+/* 设置顶部导航文字为行内块级元素，并添加文字颜色以及蓝色背景块 */
 .head a{
         
-        display: inline-block;
-        width: 110px;
-        height: 80px;
-        background-color: #3064bb;
-        color: #fff;
-        text-decoration: none;
-        /* line-height: 80px; */
-        font-size: 18px;
-        }
-        
-        /* 鼠标悬停的效果 */
+    display: inline-block;
+    width: 110px;
+    height: 80px;
+    background-color:transparent;
+    transition-duration: 0.4s;
+    color: #333;
+    text-decoration: none;
+    border-radius: 12%;
+    /* line-height: 80px; */
+    font-size: 18px;
+    }
+/* 设置鼠标悬停时减淡蓝色方块颜色 */
 .head a:hover {
-    background-color: #608dd9;
+    background-color: #709de9;
 }
 
 /* .link {
@@ -58,12 +59,14 @@ body{
 .link:hover {
     background-color: #608dd9;
 } */
+
 .link {
-    display: block;
-    margin-top: 10px;
-    width: 100%;
+    
+    /* margin-top: 10px; */
+    margin: 0 auto;
+    width: 500px;
     height: 40px;
-    background-color:aqua;
+    background-color:rgba(204,220,223,0.8);
     color: #fff;
     text-decoration: none;
     line-height: 40px;
