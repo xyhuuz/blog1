@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>学生信息管理</title>
+    <style>
+        * {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #721c24;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+  margin: 20px 0;
+
+}
+
+.title {
+  width: 933px;
+  height: 50px;
+  line-height: 50px;
+  padding-right: 15px;
+  border: 1px solid #ebebeb;
+  margin: 10px auto;
+  background-color: #f2f2f2;
+  text-align: right;
+}
+
+.title span {
+  display: inline-block;
+  vertical-align: middle;
+  height: 20px;
+  margin: -3px 5px 0;
+  text-align: center;
+  line-height: 20px;
+  color: #f26934;
+  font-weight: 700;
+}
+
+table {
+  margin: 0 auto;
+  width: 950px;
+  border-collapse: collapse;
+  color: #3c3637;
+}
+
+th {
+  padding: 10px;
+  background: #f2f2f2;
+  font-size: 18px;
+  text-align: left;
+}
+
+td,
+th {
+  border: 1px solid #ebebeb;
+  padding: 15px;
+}
+
+td {
+
+  color: #666;
+  font-size: 16px;
+
+}
+
+tbody tr {
+  background: #fff;
+}
+
+tbody tr:hover {
+  background: #fbfafa;
+}
+
+tbody a {
+  display: inline-block;
+  width: 80px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  color: #fff;
+  background-color: #f26934;
+}
+
+.info {
+  width: 900px;
+  margin: 50px auto;
+  text-align: center;
+}
+
+.info input,
+.info select {
+  width: 100px;
+  height: 30px;
+  outline: none;
+  border: 1px solid #ebebeb;
+  padding-left: 5px;
+  box-sizing: border-box;
+  margin-right: 10px;
+}
+
+.info button {
+  width: 70px;
+  height: 30px;
+  background-color: #5dbfd8;
+  outline: none;
+  border: 0;
+  color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.info button:hover {
+  background-color: #52abc1;
+}
+    </style>
+</head>
+
+<body>
+    <h1>学生就业统计表</h1>
+    <form class="info" autocomplete="off">
+      <input type="text" class="uname" name="uname" placeholder="姓名" />
+      <input type="text" class="age" name="age" placeholder="年龄" />
+      <input type="text" class="salary" name="salary" placeholder="薪资" />
+      <select name="gender" class="gender">
+        <option value="男">男</option>
+        <option value="女">女</option>
+      </select>
+      <select name="city" class="city">
+        <option value="北京">北京</option>
+        <option value="上海">上海</option>
+        <option value="广州">广州</option>
+        <option value="深圳">深圳</option>
+        <option value="曹县">曹县</option>
+      </select>
+      <button class="add">
+        <i class="iconfont icon-tianjia"></i>添加
+      </button>
+    </form>
+  
+    <div class="title">共有数据<span>0</span>条</div>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>姓名</th>
+          <th>年龄</th>
+          <th>性别</th>
+          <th>薪资</th>
+          <th>就业城市</th>
+          <th>录入时间</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- <tr>
+          <td>1</td>
+          <td>迪丽热巴</td>
+          <td>23</td>
+          <td>女</td>
+          <td>12000</td>
+          <td>北京</td>
+          <td>2099/9/9 08:08:08</td>
+          <td>
+            <a href="javascript:">
+              <i class="iconfont icon-shanchu"></i>
+              删除
+            </a>
+          </td>
+        </tr> -->
+      </tbody>
+    </table>
+  
+  <script>
+  // 参考数据
+      const initData = [
+        {
+          stuId: 1001,
+          uname: '欧阳霸天',
+          age: 19,
+          gender: '男',
+          salary: '20000',
+          city: '上海',
+          time:'2009-4-15'
+        }
+      ]
+
+
+    //先存入数据   注意，这句话是每次打开浏览器都会执行，也就是说会一直覆盖，所以如果要新输入就得先注释掉
+    //localStorage.setItem('data',JSON.stringify(initData))
+    //再取出数据
+    //把这个对象储存到数组里面                 如果没有数据就使用逻辑中断，返回一个空数组
+    const array = JSON.parse(localStorage.getItem('data')) || [] //注释掉上面那句，这句话意思就是读取本地最新的数据
+    //在这里我们已经把本地数据取出来了
+    //console.log(array)  //通过验证得知
+    //取出来作为的是一个对象数组中的一个对象，这个数组长度下载是1
+    //里面只有一个东西，就是data对象
+ 
+
+    //map+join渲染页面思路
+    //1.渲染模块需要封装为一个函数render
+    //2.使用map方法遍历数组，更换里面的数据。然后返回有数据的tr数组
+    //3.通过join方法把map返回的数组转化为字符串
+    //4.把字符串通过innerHTML赋值给tbody
+
+    const tbody = document.querySelector('tbody')//获取要渲染的位置的标签 
+
+
+    function render()
+    {
+        const trArr=array.map(function(ele,index)
+        {//trArr就是处理好的数组
+    // const initData = [   //数组中的对象存的元素
+    //     {
+    //       stuId: 1001,
+    //       uname: '欧阳霸天',
+    //       age: 19,
+    //       gender: '男',
+    //       salary: '20000',
+    //       city: '上海',
+    //       time:'2009-04-15'
+    //     }
+    //   ]
+
+    //把原有的对象中的内容覆盖掉，覆盖成html5格式的内容
+    //因为这是一个对象数组，所以可以通过ele（ 对象本身）.属性  来访问对象属性
+        return `
+        <tr>
+          <td>${ele.stuId}</td>
+          <td>${ele.uname}</td>
+          <td>${ele.age}</td>
+          <td>${ele.gender}</td>
+          <td>${ele.salary}</td>
+          <td>${ele.city}</td>
+          <td>${ele.time}</td>
+          <td>                              
+            <a href="javascript:" data-id="${index}">删除</a>
+          </td>
+        </tr> `
+        })
+
+        //注意，trArr是数组，不能直接追加给tbody
+        tbody.innerHTML = trArr.join('')//最后把他变成无缝字符串即可完成
+        //显示一共有几条   取到显示的标签，然后大小等于数组长度
+        document.querySelector('.title').innerHTML = `共有数据<span>${array.length}</span>条</div>`
+
+    }
+    render()  //记得调用一下函数，里面你不调用函数，这个函数就是废的
+    
+    
+    // form表单提交事件，阻止默认行为
+    //表单form叫info
+    const info = document.querySelector('.info')
+
+    //这次要填写的就三项
+    const uname= document.querySelector('.uname')
+    const age= document.querySelector('.age')
+    const gender= document.querySelector('.gender')
+    const salary= document.querySelector('.salary')
+    const city= document.querySelector('.city')
+
+    info.addEventListener('submit',function(e){
+        e.preventDefault()
+        //非空判断
+        //没值就是假，非假就是真  也就是说下面只要有一个是空就会进入if
+        if(!uname.value || !age.value || !salary.value)
+        {
+            return alert('有内容没有输入！')
+            //return 就会直接结束这个函数就不会继续执行了
+        }
+        else   //都写了就可以添加数据
+        {
+            
+            array.push({
+                stuId: array.length + 1,
+                uname: uname.value,
+                age: age.value,
+                gender: gender.value,
+                salary: salary.value,
+                city: city.value,
+                time:new Date().toLocaleDateString()
+            })
+            render()
+            // 填写完以后重置表单
+            this.reset()
+
+
+            //之前没有视频没有写如何存入本地，这里可以再做一步
+            //括号里面第一个值是你把这个东西存进去，给它在里面赋的名字
+            //这样不断地把数据覆盖成array，保证存的是最新的数据
+            localStorage.setItem('data',JSON.stringify(array))
+        }
+    })
+
+
+    //删除模块，核心原理与之前相似，还是先事件委托给tbody
+    //然后利用自定义标签去获取序号并且关闭
+    tbody.addEventListener('click',function(e){
+        if(e.target.tagName ==='A')//关闭按钮还是a
+        {
+            //接着我们要回去给每个a标签打索引号，因为是动态规划的，得回到生成那里
+            //e.target.dataset.id  拿到点击的索引号，而这个索引号恰好就是数组的下标
+            array.splice(e.target.dataset.id,1)//删除完以后还要把最新的数组传送给本地
+            localStorage.setItem('data',JSON.stringify(array))
+            render()
+        }
+    })
+  </script>
+</body>
+
+</html>

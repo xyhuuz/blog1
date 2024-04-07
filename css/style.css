@@ -27,6 +27,7 @@ body{
 }
 /* 设置顶部导航透明背景色、高度以及文字垂直居中 */
 .head{
+
     line-height: 80px;
     text-align: center;
     box-sizing: border-box;
