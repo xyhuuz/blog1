@@ -14,6 +14,31 @@ body{
     background-attachment: fixed;
     background-size: 100%;
 }
+
+#parallax_wrapper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  perspective: 5000px;
+}
+
+#parallax_wrapper img {
+  transition: .1s;
+  position:fixed;
+  top: 0;
+  left: 0;
+  width:100%;
+  height:100%;
+  min-width: 1000px;
+  z-index:-10;
+  /* zoom: 1; */
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
 .musicplayer {
     position: fixed;
     bottom: 10px;
@@ -27,11 +52,12 @@ body{
 }
 /* 设置顶部导航透明背景色、高度以及文字垂直居中 */
 .head{
-
+    position: relative;
     line-height: 80px;
     text-align: center;
     box-sizing: border-box;
     background-color: rgba(224,240,253,0.8);
+    z-index: 99999999999;
 }
 /* 设置顶部导航文字为行内块级元素，并添加文字颜色以及蓝色背景块 */
 .head a{
@@ -46,6 +72,7 @@ body{
     border-radius: 12%;
     /* line-height: 80px; */
     font-size: 18px;
+    z-index: 99999999999;
     }
 /* 设置鼠标悬停时减淡蓝色方块颜色 */
 .head a:hover {

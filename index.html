@@ -9,10 +9,31 @@
     <link rel="Shortcut Icon" href="./img/title.ico" type="image/x-icon" />
     <!-- 给网站标题取名 -->
     <title>Xyhuuz's Project</title>
-
 </head>
 
 <body>
+    <div id="parallax_wrapper">
+        <img id="parallax_bg" style="background-image: url('./img/bg.jpg');" />
+    </div>
+    <script>
+        const parallaxWrapper = document.querySelector('#parallax_wrapper')
+
+        parallaxWrapper.addEventListener('mousemove', (e) => {
+        const range = 10
+        let horizontal = (e.clientX / parseInt(getComputedStyle(parallaxWrapper).width, 10)) * range - range / 2
+        let vertical = (e.clientY / parseInt(getComputedStyle(parallaxWrapper).height, 10)) * range - range / 2
+
+        document.querySelector('#parallax_bg').style.transform = calcTransform(horizontal, vertical, 0)
+        document.querySelector('#parallax_mountain').style.transform = calcTransform(horizontal, vertical, 3)
+        document.querySelector('#parallax_cloud').style.transform = calcTransform(horizontal, vertical, 8)
+        })
+
+        function calcTransform(horizontal, vertical, offset) {
+        return `translate3d(${horizontal * offset}px, ${
+            vertical * offset
+        }px, 0) rotateX(${-vertical}deg) rotateY(${horizontal}deg)`
+        }
+    </script>
     <!-- 鼠标点击烟花特效 -->
     <script src="./js/mouse-click.js"></script>
     <script src="./js/hualuo.js"></script>
@@ -24,12 +45,11 @@
         <img src="./img/R-C.jpg" alt="[picture]" height="80px">
         <a href="index.html">Home</a>
         <a href="archives.html">Archives</a>
-        <a href="https://www.luogu.com.cn/">Resources</a>
+        <a href="res.html">Resources</a>
         <a href="games.html">Games</a>
         <a href="links.html">Links</a>
-        <a href="system.html">System</a>
     </div>
-
+    
     <p align="center" style="font-size: 32px;color:navy;">Hello World!</p>
 
     <div class="blog">
@@ -37,5 +57,6 @@
         <p class="blog- shuming" style="text-align: center;font-size: 50px;">Xyhuuz's blog</p>
         <p class="blog- shuming" style="text-align: center;font-size: 50px;">-inqueue-</p>
     </div>
+    
 </body>
 </html>
